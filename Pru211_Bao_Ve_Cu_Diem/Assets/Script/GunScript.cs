@@ -18,7 +18,7 @@ public class GunScript : MonoBehaviour
 	private int maxBullet = 10; //maximum the bullet fire
 	private int cooldownTime = 2; //time for cooldown fill max bullet
 	private bool isCooldown = false; //status of cooldown
-	private float bulletSpeed = 10f; //bullet force
+	private float bulletSpeed = 12f; //bullet force
 	public float rotateSpeed = 100f; // The speed at which the Stick rotates, in degrees per second
 	public TextMeshProUGUI bulletNumberText; //display bullet number
 	public TextMeshProUGUI cooldownDisplay; //display time for cooldown
@@ -46,23 +46,15 @@ public class GunScript : MonoBehaviour
 		{
 			// Get the mouse position in world coordinates
 			Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); ;
-			GameObject bullet = Instantiate(bulletPerfab, mousePos, bulletSpawnPoint.rotation);
-			Rigidbody2D rigidbody = bullet.GetComponent<Rigidbody2D>();
-			rigidbody.AddForce(bulletSpawnPoint.up * bulletSpeed, ForceMode2D.Impulse);
-			GetComponent<AudioSource>().Play();
-			Vector3 pivot = new Vector3(-9, -4f, 0);
+			Vector3 pivot = new Vector3(-9f, -4.07f, 0);
 			// Calculate the direction from the pivot to the mouse position
 			Vector3 direction = pivot - mousePos;
 
 			// Calculate the angle of rotation in degrees using the Atan2 function
-			float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+			float angle = Mathf.Atan2(direction.x, -direction.y) * Mathf.Rad2Deg;
 
 			// Rotate the object around the pivot using the calculated angle
-			transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-		}
-
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
+			transform.rotation = Quaternion.Euler(new Vector3(-9, -4.07f, angle));
 			if (maxBullet > 0)
 			{
 				Shoot();
@@ -85,7 +77,7 @@ public class GunScript : MonoBehaviour
 		if (maxBullet <= 0)
 		{
 			bulletNumberText.text = "";
-			cooldownDisplay.text = "Nạp đạn: " + timer.elapsedSeconds.ToString().Substring(0, 1) + "/" + cooldownTime + " giây";
+			cooldownDisplay.text = "Nạp đạn: " + string.Format("{0:0.#}", timer.elapsedSeconds)  + "/" + cooldownTime + " giây";
 			if (!isCooldown)
 			{
 				timer.run();

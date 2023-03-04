@@ -12,7 +12,7 @@ public class AirForceEnermy : Enermy
     // Start is called before the first frame update
     public override void Start()
     {
-        Initialize(10, 10, new Vector2(-7f, 4f), 8f);
+        Initialize(10, 10, new Vector2(-6f, 2.5f), 8f);
         base.Start();
     }
 
