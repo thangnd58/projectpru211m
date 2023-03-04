@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 481734783246469638}
   - component: {fileID: 481734783246469639}
   - component: {fileID: -3921448497230708301}
+  - component: {fileID: -2415075824779169109}
   m_Layer: 0
-  m_Name: Sung
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,3 +198,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2415075824779169109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481734783246469636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287e83ea00c5e71469edbcceba7b44aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     float totalSeconds = 0;
 
     //timer execution
-    float elapsedSeconds = 0;
+    public float elapsedSeconds = 0;
     bool running = false;
 
     //support for finished 

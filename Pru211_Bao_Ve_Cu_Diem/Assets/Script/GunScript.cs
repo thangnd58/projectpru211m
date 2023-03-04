@@ -1,44 +1,73 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GunScript : MonoBehaviour
 {
-	//Luc ban cua vien dan
-	private float Force = 11f;
-	public float rotateSpeed = 100f; // The speed at which the Stick rotates, in degrees per second
+
+
 	public GameObject bulletPerfab;
+
 	public Transform bulletSpawnPoint;
+
 	GameObject childObject;
+
+	Timer timer;
+
+	private int maxBullet = 10; //maximum the bullet fire
+	private int cooldownTime = 2; //time for cooldown fill max bullet
+	private bool isCooldown = false; //status of cooldown
+	private float bulletSpeed = 10f; //bullet force
+	public float rotateSpeed = 100f; // The speed at which the Stick rotates, in degrees per second
+	public TextMeshProUGUI bulletNumberText; //display bullet number
+	public TextMeshProUGUI cooldownDisplay; //display time for cooldown
 	void Start()
 	{
-		// Create a new GameObject with a sphere mesh
-		childObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-
-		// Set the parent of the childObject to an existing parent GameObject
+		//the vertex for shoots a bullet 
 		Transform parentTransform = gameObject.transform;
+		childObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 		childObject.transform.SetParent(parentTransform);
-
-		// Set the position of the childObject relative to its parent
 		childObject.transform.localPosition = new Vector3(0f, 0.5f, 0f);
 		childObject.transform.localScale = new Vector3(0f, 0f, 1);
+
+		//timer set cooldown for fill bullet
+		timer = GetComponent<Timer>();
+		timer.Duration = cooldownTime;
 	}
 
 	void Update()
 	{
-		float rotation = Input.GetAxis("Horizontal") * rotateSpeed;
-		if (rotation != 0)
+		processTextDisplay();
+
+
+
+		if (Input.GetMouseButtonDown(1))
 		{
-			rotation *= Time.deltaTime;
-
+			// Get the mouse position in world coordinates
+			Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); ;
+			GameObject bullet = Instantiate(bulletPerfab, mousePos, bulletSpawnPoint.rotation);
+			Rigidbody2D rigidbody = bullet.GetComponent<Rigidbody2D>();
+			rigidbody.AddForce(bulletSpawnPoint.up * bulletSpeed, ForceMode2D.Impulse);
+			GetComponent<AudioSource>().Play();
 			Vector3 pivot = new Vector3(-9, -4f, 0);
-			Vector3 vector = new Vector3(0, 0, -rotation);
+			// Calculate the direction from the pivot to the mouse position
+			Vector3 direction = pivot - mousePos;
 
-			transform.RotateAround(pivot, vector, 0.3f);
+			// Calculate the angle of rotation in degrees using the Atan2 function
+			float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+			// Rotate the object around the pivot using the calculated angle
+			transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 		}
+
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			Shoot();
+			if (maxBullet > 0)
+			{
+				Shoot();
+				maxBullet--;
+			}
 		}
 	}
 
@@ -46,7 +75,32 @@ public class GunScript : MonoBehaviour
 	{
 		GameObject bullet = Instantiate(bulletPerfab, childObject.transform.position, bulletSpawnPoint.rotation);
 		Rigidbody2D rigidbody = bullet.GetComponent<Rigidbody2D>();
-		rigidbody.AddForce(bulletSpawnPoint.up * Force, ForceMode2D.Impulse);
+		rigidbody.AddForce(bulletSpawnPoint.up * bulletSpeed, ForceMode2D.Impulse);
 		GetComponent<AudioSource>().Play();
+	}
+
+	void processTextDisplay()
+	{
+
+		if (maxBullet <= 0)
+		{
+			bulletNumberText.text = "";
+			cooldownDisplay.text = "Nạp đạn: " + timer.elapsedSeconds.ToString().Substring(0, 1) + "/" + cooldownTime + " giây";
+			if (!isCooldown)
+			{
+				timer.run();
+				isCooldown = true;
+			}
+			if (timer.Finished)
+			{
+				maxBullet = 10;
+				isCooldown = false;
+			}
+		}
+		else
+		{
+			cooldownDisplay.text = "";
+			bulletNumberText.text = maxBullet < 0 ? "0" : maxBullet + " Viên";
+		}
 	}
 }
