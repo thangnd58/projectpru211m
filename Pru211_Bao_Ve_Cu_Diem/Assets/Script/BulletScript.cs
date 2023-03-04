@@ -12,7 +12,7 @@ public class BulletScript : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (collision.gameObject.tag == "Ground")
+		if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enermy")
 		{
 			Destroy(gameObject);
 			Instantiate<GameObject>(explosionPrefab, transform.position, Quaternion.identity);

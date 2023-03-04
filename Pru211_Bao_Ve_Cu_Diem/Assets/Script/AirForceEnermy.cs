@@ -21,4 +21,12 @@ public class AirForceEnermy : Enermy
     {
         base.Update();
     }
+    public override void Die()
+    {
+        base.Die();
+    }
+    public override void OnCollisionEnter2D(Collision2D collision)
+    {
+        base.OnCollisionEnter2D(collision);
+    }
 }
