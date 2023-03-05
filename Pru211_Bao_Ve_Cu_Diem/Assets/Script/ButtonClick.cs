@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ButtonClick : MonoBehaviour
@@ -24,7 +25,8 @@ public class ButtonClick : MonoBehaviour
         buttonAmThanh.interactable = true;
         buttonHuongDan.interactable = true;
         Time.timeScale = 1;
-    }
+		SceneManager.LoadScene("GamePlay");
+	}
 
     public void loadGame()
     {
