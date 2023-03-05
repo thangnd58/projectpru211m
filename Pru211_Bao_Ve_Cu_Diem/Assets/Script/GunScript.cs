@@ -15,6 +15,8 @@ public class GunScript : MonoBehaviour
 
 	Timer timer;
 
+	// Define a timer to keep track of when the next bullet can be fired
+	private float nextFire = 0.0f;
 	private int maxBullet = 10; //maximum the bullet fire
 	private int cooldownTime = 2; //time for cooldown fill max bullet
 	private bool isCooldown = false; //status of cooldown
@@ -40,8 +42,6 @@ public class GunScript : MonoBehaviour
 	{
 		processTextDisplay();
 
-
-
 		if (Input.GetMouseButtonDown(1))
 		{
 			// Get the mouse position in world coordinates
@@ -55,10 +55,13 @@ public class GunScript : MonoBehaviour
 
 			// Rotate the object around the pivot using the calculated angle
 			transform.rotation = Quaternion.Euler(new Vector3(-9, -4.07f, angle));
-			if (maxBullet > 0)
+
+			if (Time.time > nextFire && maxBullet > 0 && !isCooldown)
 			{
+				float fireRate = 1.0f;
 				Shoot();
 				maxBullet--;
+				nextFire = Time.time + fireRate;
 			}
 		}
 	}
@@ -77,7 +80,7 @@ public class GunScript : MonoBehaviour
 		if (maxBullet <= 0)
 		{
 			bulletNumberText.text = "";
-			cooldownDisplay.text = "Nạp đạn: " + string.Format("{0:0.#}", timer.elapsedSeconds)  + "/" + cooldownTime + " giây";
+			cooldownDisplay.text = "Nạp đạn: " + string.Format("{0:0.#}", timer.elapsedSeconds) + "/" + cooldownTime + " giây";
 			if (!isCooldown)
 			{
 				timer.run();
