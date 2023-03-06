@@ -6,15 +6,17 @@ public class WallScript : MonoBehaviour
 {
     public float maxHealth = 100.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[SerializeField]
+	GameObject explosionPrefab;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.tag == "BulletEnermy")
+		{
+			maxHealth--;
+			Instantiate<GameObject>(explosionPrefab, collision.transform.position, Quaternion.identity);
+			Destroy(collision.gameObject);
+		}
+
+	}
 }

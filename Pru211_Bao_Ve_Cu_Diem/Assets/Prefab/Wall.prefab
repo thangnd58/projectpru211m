@@ -98,3 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  explosionPrefab: {fileID: 1317199644935074270, guid: 43ba4e3b80581b94d9a6ca1de7dbabe2, type: 3}
