@@ -19,4 +19,12 @@ public class WallScript : MonoBehaviour
 		}
 
 	}
+
+	private void Update()
+	{
+		if(maxHealth <= 0)
+		{
+			Time.timeScale = 0;
+		}
+	}
 }
