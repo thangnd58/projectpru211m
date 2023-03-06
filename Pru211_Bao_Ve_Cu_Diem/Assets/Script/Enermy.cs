@@ -17,6 +17,7 @@ public  class Enermy : MonoBehaviour
     public float  bulletSpeed = 12f;
     public Timer timer; 
     public bool canShoot=true;
+
     [SerializeField]
     public GameObject bulletEnermy;
     public Rigidbody2D rigidbody { get; set; }

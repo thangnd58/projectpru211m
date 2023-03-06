@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AirForceEnermy : Enermy
 {
-    private Vector2 slopShootAirForce = new Vector2(-1, 1);
+    private Vector2 slopShootAirForce = new Vector2(-1, -0.7f);
     public AirForceEnermy() : base() { }
     public override void Initialize(double baseHp, double baseDamage, Vector2 endpoint, float timeToAttack, Vector2 slopeShoot)
     {
