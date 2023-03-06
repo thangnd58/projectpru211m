@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2379348672528311210}
   - component: {fileID: 2379348672528311213}
   - component: {fileID: 2379348672528311212}
+  - component: {fileID: -6510972359157612086}
   - component: {fileID: 2379348672528311215}
   m_Layer: 0
   m_Name: Infantry
@@ -96,12 +97,44 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-6510972359157612086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2379348672528311214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287e83ea00c5e71469edbcceba7b44aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elapsedSeconds: 1
 --- !u!114 &2379348672528311215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,3 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be64e279a632a2047bc26eae177ccf93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpeed: 12
+  timer: {fileID: 0}
+  canShoot: 1
+  bulletEnermy: {fileID: 100434782551840498, guid: 479739f1978c4a64cb6bba764b713cd0, type: 3}

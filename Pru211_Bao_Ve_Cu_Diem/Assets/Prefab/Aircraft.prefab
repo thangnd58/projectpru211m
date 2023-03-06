@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7022796263423342276}
   - component: {fileID: 7022796263423342277}
-  - component: {fileID: 7022796263423342278}
   - component: {fileID: 7022796263423342279}
+  - component: {fileID: 7379247699720635013}
+  - component: {fileID: 7022796263423342278}
   m_Layer: 0
-  m_Name: AirCraft
+  m_Name: Aircraft
   m_TagString: Enermy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,18 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7022796263423342278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7022796263423342280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b295426c0b2664ebd59c1e86cff936, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &7022796263423342279
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -108,7 +97,26 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.21133333}
@@ -124,3 +132,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7379247699720635013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7022796263423342280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287e83ea00c5e71469edbcceba7b44aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elapsedSeconds: 0
+--- !u!114 &7022796263423342278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7022796263423342280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b295426c0b2664ebd59c1e86cff936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 12
+  timer: {fileID: 0}
+  canShoot: 1
+  bulletEnermy: {fileID: 100434782551840498, guid: 479739f1978c4a64cb6bba764b713cd0, type: 3}
