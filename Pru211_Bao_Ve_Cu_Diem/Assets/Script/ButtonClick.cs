@@ -28,10 +28,7 @@ public class ButtonClick : MonoBehaviour
 		SceneManager.LoadScene("GamePlay");
 	}
 
-    public void loadGame()
-    {
-        
-    }
+ 
     public void setAmThanh()
     {
         

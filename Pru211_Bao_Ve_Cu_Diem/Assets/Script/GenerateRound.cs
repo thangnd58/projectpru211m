@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GenerateRound : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+{ 
+    public double generateTotalEnemy(int rount)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        double totalEnemy = 0;
+        if(rount > 0)
+        {
+            totalEnemy = 47 * 1.5 * rount;
+        }
+        return totalEnemy;
     }
 }
