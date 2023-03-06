@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class RobotEnermy : Enermy
 {
+    private Vector2 slopShootRobot = new Vector2(-1, 1);
     public RobotEnermy() : base() { }
-    public override void Initialize(double baseHp, double baseDamage, Vector2 endpoint, float timeToAttack)
+    public override void Initialize(double baseHp, double baseDamage, Vector2 endpoint, float timeToAttack, Vector2 slopeShoot)
     {
-        base.Initialize(baseHp, baseDamage, endpoint, timeToAttack);
+        base.Initialize(baseHp, baseDamage, endpoint, timeToAttack, slopeShoot);
     }
     // Start is called before the first frame update
     public override void Start()
     {
-        Initialize(10, 10, new Vector2(-5f, -4f), 10f);
+        Initialize(10, 10, new Vector2(-4f, -4f), 10f,slopShootRobot);
         base.Start();
     }
 
