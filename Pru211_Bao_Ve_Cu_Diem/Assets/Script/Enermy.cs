@@ -19,6 +19,7 @@ public  class Enermy : MonoBehaviour
     public bool canShoot=true;
     [SerializeField]
     public GameObject bulletEnermy;
+    GameObject childObject;
     public Rigidbody2D rigidbody { get; set; }
     //public Enermy(int level)
     //{
@@ -41,14 +42,20 @@ public  class Enermy : MonoBehaviour
     // Start is called before the first frame update
     public virtual void Start()
     {
-        startingPosition=gameObject.transform.position;
+        Transform parentTransform = gameObject.transform;
+        childObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        childObject.transform.SetParent(parentTransform);
+        childObject.transform.localPosition = new Vector3(-0.5f, 0, 0);
+        childObject.transform.localScale = new Vector3(0.2f,1f,0);
+        childObject.transform.Rotate(45,-60,0);
+        startingPosition =gameObject.transform.position;
         timer = GetComponent<Timer>();
         timer.Duration = 1;
         timer.run();
     }
     public virtual void Shoot()
     {
-        GameObject bullet = Instantiate(bulletEnermy, EndPoint, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletEnermy, childObject.transform.position, Quaternion.identity);
         rigidbody = bullet.GetComponent<Rigidbody2D>();
         rigidbody.AddForce(SlopeShoot * bulletSpeed, ForceMode2D.Impulse);
     }
