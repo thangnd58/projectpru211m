@@ -20,10 +20,10 @@ public class GenerateEnermy : MonoBehaviour
     void Start()
     {
         
-        //Instantiate<GameObject>(InfrantryEnermyPrefab, posGround, Quaternion.identity);
+        Instantiate<GameObject>(InfrantryEnermyPrefab, posGround, Quaternion.identity);
         Instantiate<GameObject>(AirForceEnermyPrefab, posAirForce, Quaternion.identity);
         Instantiate<GameObject>(RobotEnermyPrefab, posGround, Quaternion.identity);
-        //Instantiate<GameObject>(TankEnermyPrefab, posGround, Quaternion.identity);
+        Instantiate<GameObject>(TankEnermyPrefab, posGround, Quaternion.identity);
     }
 
     // Update is called once per frame

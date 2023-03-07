@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RobotEnermy : Enermy
 {
-    private Vector2 slopShootRobot = new Vector2(-1, 1);
+    private Vector2 slopShootRobot = new Vector2(-1, 0.5f);
     public RobotEnermy() : base() { }
     public override void Initialize(double baseHp, double baseDamage, Vector2 endpoint, float timeToAttack, Vector2 slopeShoot)
     {

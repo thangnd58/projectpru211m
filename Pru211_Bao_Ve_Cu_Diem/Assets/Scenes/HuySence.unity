@@ -182,11 +182,11 @@ PrefabInstance:
     - target: {fileID: 1790623875946816815, guid: cabb03f7b31d81a4c922d47208478dc7, type: 3}
       propertyPath: TankEnermyPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4553746049969871827, guid: 6eb399563f9f8594db2dfeb6b9c01fdc, type: 3}
     - target: {fileID: 1790623875946816815, guid: cabb03f7b31d81a4c922d47208478dc7, type: 3}
       propertyPath: RobotEnermyPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7277778900075296799, guid: 56e5efdacbddaad4981bb0e5f0da723a, type: 3}
     - target: {fileID: 1790623875946816815, guid: cabb03f7b31d81a4c922d47208478dc7, type: 3}
       propertyPath: AirForceEnermyPrefab
       value: 
