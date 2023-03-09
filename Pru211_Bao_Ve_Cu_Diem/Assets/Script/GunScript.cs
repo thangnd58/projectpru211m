@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Script;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -17,11 +18,11 @@ public class GunScript : MonoBehaviour
 
 	// Define a timer to keep track of when the next bullet can be fired
 	private float nextFire = 0.0f;
-	private int maxBullet = 10; //maximum the bullet fire
-	private int cooldownTime = 2; //time for cooldown fill max bullet
+	private int maxBullet = Common.maxBullet; //maximum the bullet fire
+	private int cooldownTime = Common.cooldownTime; //time for cooldown fill max bullet
 	private bool isCooldown = false; //status of cooldown
-	private float bulletSpeed = 12f; //bullet force
-	public float rotateSpeed = 100f; // The speed at which the Stick rotates, in degrees per second
+	private float bulletSpeed = Common.bulletSpeed; //bullet force
+	public float rotateSpeed = Common.rotateSpeed; // The speed at which the Stick rotates, in degrees per second
 	public TextMeshProUGUI bulletNumberText; //display bullet number
 	public TextMeshProUGUI cooldownDisplay; //display time for cooldown
 	void Start()

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4553746049969871830}
   - component: {fileID: 4553746049969871825}
   - component: {fileID: 4553746049969871824}
+  - component: {fileID: 8421700132347580821}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Enermy
@@ -98,6 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da53093bd9b73f46b0e367b6e3e4b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpeed: 12
+  timer: {fileID: 0}
+  canShoot: 1
+  bulletEnermy: {fileID: 100434782551840498, guid: 479739f1978c4a64cb6bba764b713cd0, type: 3}
+  childObject: {fileID: 0}
 --- !u!61 &4553746049969871824
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -108,6 +114,25 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -124,3 +149,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8421700132347580821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4553746049969871827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287e83ea00c5e71469edbcceba7b44aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elapsedSeconds: 0

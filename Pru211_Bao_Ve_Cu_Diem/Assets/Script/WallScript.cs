@@ -1,20 +1,43 @@
+using Assets.Script;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WallScript : MonoBehaviour
 {
-    public float maxHealth = 100.0f;
+	public float maxHealth = 100.0f;
+	private float healthLeft;
+	[SerializeField]
+	GameObject explosionPrefab;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public TextMeshProUGUI healthDisplay;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void Start()
+	{
+		healthLeft = maxHealth;
+		Common.healthLeft = maxHealth;
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.tag == "BulletEnermy")
+		{
+			healthLeft--;
+			Common.healthLeft = healthLeft;
+			Instantiate<GameObject>(explosionPrefab, collision.transform.position, Quaternion.identity);
+			Destroy(collision.gameObject);
+		}
+
+	}
+
+	private void Update()
+	{
+		healthDisplay.text = "Hp: " + healthLeft + "/" + maxHealth;
+
+		if (healthLeft <= 0)
+		{
+			Time.timeScale = 0;
+		}
+	}
 }
