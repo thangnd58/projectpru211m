@@ -19,7 +19,7 @@ public class GenerateEnermy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         Instantiate<GameObject>(InfrantryEnermyPrefab, posGround, Quaternion.identity);
         Instantiate<GameObject>(AirForceEnermyPrefab, posAirForce, Quaternion.identity);
         Instantiate<GameObject>(RobotEnermyPrefab, posGround, Quaternion.identity);

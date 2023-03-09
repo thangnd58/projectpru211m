@@ -103,6 +103,7 @@ MonoBehaviour:
   timer: {fileID: 0}
   canShoot: 1
   bulletEnermy: {fileID: 100434782551840498, guid: 479739f1978c4a64cb6bba764b713cd0, type: 3}
+  childObject: {fileID: 0}
 --- !u!61 &7277778900075296792
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -113,7 +114,26 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
