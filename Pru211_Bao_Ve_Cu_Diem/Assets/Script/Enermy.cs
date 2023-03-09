@@ -12,6 +12,7 @@ public  class Enermy : MonoBehaviour
     public Vector2 EndPoint { get; set; }
     public Vector2 SlopeShoot { get; set; }
     public float TimeToAttack { get; set; }
+    public Vector3 VectoRotateOfGun { get; set; }
     private float elapsedTime = 0.0f;
     private Vector2 startingPosition;
     public float  bulletSpeed = 12f;
@@ -20,7 +21,7 @@ public  class Enermy : MonoBehaviour
 
     [SerializeField]
     public GameObject bulletEnermy;
-    GameObject childObject;
+    public GameObject childObject;
     public Rigidbody2D rigidbody { get; set; }
     //public Enermy(int level)
     //{
@@ -30,7 +31,7 @@ public  class Enermy : MonoBehaviour
     {
         this.Level = 1;
     }
-    public virtual void Initialize(double baseHp, double baseDamage, Vector2 endpoint, float timeToAttack, Vector2 slopeShoot )
+    public virtual void Initialize(double baseHp, double baseDamage, Vector2 endpoint, float timeToAttack, Vector2 slopeShoot)
     {
         
         Hp = baseHp * Math.Pow(1.2, Level);
@@ -48,7 +49,7 @@ public  class Enermy : MonoBehaviour
         childObject.transform.SetParent(parentTransform);
         childObject.transform.localPosition = new Vector3(-0.5f, 0, 0);
         childObject.transform.localScale = new Vector3(0.2f,1f,0);
-        childObject.transform.Rotate(45,-60,0);
+        //childObject.transform.Rotate(45,-60,0);
         startingPosition =gameObject.transform.position;
         timer = GetComponent<Timer>();
         timer.Duration = 1;

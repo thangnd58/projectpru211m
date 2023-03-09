@@ -5,6 +5,7 @@ using UnityEngine;
 public class TankEnermy : Enermy
 {
     private Vector2 slopShootTank = new Vector2(-1, 1);
+    private Vector3 rotateGunOfTank = new Vector3(10, -75, -300);
     public TankEnermy() : base() { }
     public override void Initialize(double baseHp, double baseDamage, Vector2 endpoint, float timeToAttack, Vector2 slopeShoot)
     {
@@ -15,6 +16,7 @@ public class TankEnermy : Enermy
     {
         Initialize(10, 10, new Vector2(-5f, -4f), 12f,slopShootTank);
         base.Start();
+        childObject.transform.Rotate(rotateGunOfTank);
     }
 
     // Update is called once per frame
