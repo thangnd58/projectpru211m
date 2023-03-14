@@ -1,3 +1,4 @@
+using Assets.Script;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,7 @@ public class AirForceEnermy : Enermy
     public override void Die()
     {
         base.Die();
+        Common.money += 250;
     }
     public override void OnCollisionEnter2D(Collision2D collision)
     {

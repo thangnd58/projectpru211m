@@ -1,3 +1,4 @@
+using Assets.Script;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -111,10 +112,12 @@ public  class Enermy : MonoBehaviour
             Die();
         }
     }
+
     public virtual void Die()
     {
         Destroy(gameObject);
     }
+
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Bullet")
