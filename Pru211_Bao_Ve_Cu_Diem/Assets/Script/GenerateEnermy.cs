@@ -28,6 +28,7 @@ public class GenerateEnermy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        generateRound = gameObject.AddComponent<GenerateRound>();
         countRound = 1; 
         countPower = 0;
         listEnermy = new List<GameObject>();
@@ -46,7 +47,7 @@ public class GenerateEnermy : MonoBehaviour
     {
         if (timer.Finished)
         {
-            if(countPower.CompareTo(generateRound.generateTotalEnemy(countRound)) >0)
+            if(countPower - generateRound.generateTotalEnemy(countRound) < 0)
             {
                 spawnEnermy();
                 Debug.Log(countPower);

@@ -33,7 +33,7 @@ public class WallScript : MonoBehaviour
 
 	private void Update()
 	{
-		healthDisplay.text = "Hp: " + healthLeft + "/" + maxHealth;
+		healthDisplay.text = healthLeft + "/" + maxHealth;
 
 		if (healthLeft <= 0)
 		{

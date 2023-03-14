@@ -18,6 +18,6 @@ namespace Assets.Script
 		public static float maxHealth = 100.0f;
 		public static float healthLeft;
 
-		public static int money;
+		public static int money = 0;
 	}
 }
