@@ -5,9 +5,9 @@ using static UnityEditor.PlayerSettings;
 
 public class GenerateEnermy : MonoBehaviour
 {
-    private static Vector2 posGround = new Vector2(9f,-4.55f);
+    private static Vector2 posGround = new Vector2(9f, -4.55f);
     private static Vector2 posAirForce = new Vector2(9f, 3.5f);
-    
+
     [SerializeField]
     GameObject InfrantryEnermyPrefab;
     [SerializeField]
@@ -29,7 +29,8 @@ public class GenerateEnermy : MonoBehaviour
     void Start()
     {
         generateRound = gameObject.AddComponent<GenerateRound>();
-        countRound = 1; 
+
+        countRound = 1;
         countPower = 0;
         listEnermy = new List<GameObject>();
         listEnermy.Add(InfrantryEnermyPrefab);
@@ -37,7 +38,7 @@ public class GenerateEnermy : MonoBehaviour
         listEnermy.Add(RobotEnermyPrefab);
         listEnermy.Add(TankEnermyPrefab);
 
-        
+
         timer = gameObject.AddComponent<Timer>();
         timer.Duration = 2f;
         timer.run();
@@ -49,30 +50,36 @@ public class GenerateEnermy : MonoBehaviour
         if (timer.Finished)
         {
 
-            if(countPower - generateRound.generateTotalEnemy(countRound) < 0)
+
+
+            if (countPower - generateRound.generateTotalEnemy(countRound) < 0)
+
 
             {
                 spawnEnermy();
+
                 Debug.Log(countPower);
+
             }
             else
             {
                 Debug.Log("Done");
-                if(listEnermy.Count == 0)
+                Debug.Log("List done :" + listEnermy.Count);
+                if (listEnermy.Count == 4)
                 {
                     countPower = 0;
                     countRound++;
                 }
             }
-            
+
             timer.run();
-            
+
         }
     }
 
     public void spawnEnermy()
     {
-        int site = Random.Range(0,listEnermy.Count);
+        int site = Random.Range(0, listEnermy.Count);
         if (listEnermy[site] == AirForceEnermyPrefab)
         {
             countPower += 3;
@@ -94,5 +101,6 @@ public class GenerateEnermy : MonoBehaviour
             countPower += 10;
             Instantiate<GameObject>(TankEnermyPrefab, posGround, Quaternion.identity);
         }
+        Debug.Log("list count :" + listEnermy.Count);
     }
 }
