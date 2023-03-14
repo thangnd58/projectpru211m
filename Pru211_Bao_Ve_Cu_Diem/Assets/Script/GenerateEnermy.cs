@@ -29,6 +29,7 @@ public class GenerateEnermy : MonoBehaviour
     void Start()
     {
         generateRound = gameObject.AddComponent<GenerateRound>();
+
         countRound = 1;
         countPower = 0;
         listEnermy = new List<GameObject>();
@@ -50,7 +51,9 @@ public class GenerateEnermy : MonoBehaviour
         {
 
 
+
             if (countPower - generateRound.generateTotalEnemy(countRound) < 0)
+
 
             {
                 spawnEnermy();
