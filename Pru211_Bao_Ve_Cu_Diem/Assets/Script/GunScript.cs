@@ -25,7 +25,8 @@ public class GunScript : MonoBehaviour
 	public float rotateSpeed = Common.rotateSpeed; // The speed at which the Stick rotates, in degrees per second
 	public TextMeshProUGUI bulletNumberText; //display bullet number
 	public TextMeshProUGUI cooldownDisplay; //display time for cooldown
-	void Start()
+    public TextMeshProUGUI moneyDisplay; //display time for cooldown
+    void Start()
 	{
 		//the vertex for shoots a bullet 
 		Transform parentTransform = gameObject.transform;
@@ -33,7 +34,7 @@ public class GunScript : MonoBehaviour
 		childObject.transform.SetParent(parentTransform);
 		childObject.transform.localPosition = new Vector3(0f, 0.5f, 0f);
 		childObject.transform.localScale = new Vector3(0f, 0f, 1);
-
+		moneyDisplay.text = Common.money + "$";
 		//timer set cooldown for fill bullet
 		timer = GetComponent<Timer>();
 		timer.Duration = cooldownTime;
@@ -77,8 +78,8 @@ public class GunScript : MonoBehaviour
 
 	void processTextDisplay()
 	{
-
-		if (maxBullet <= 0)
+        moneyDisplay.text = Common.money + "$";
+        if (maxBullet <= 0)
 		{
 			bulletNumberText.text = "";
 			cooldownDisplay.text = "Nạp đạn: " + string.Format("{0:0.#}", timer.elapsedSeconds) + "/" + cooldownTime + " giây";

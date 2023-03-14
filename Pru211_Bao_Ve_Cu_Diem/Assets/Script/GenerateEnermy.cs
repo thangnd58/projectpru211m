@@ -48,7 +48,9 @@ public class GenerateEnermy : MonoBehaviour
     {
         if (timer.Finished)
         {
-            if(countPower - generateRound.generateTotalEnemy(countRound) <0 )
+
+            if(countPower - generateRound.generateTotalEnemy(countRound) < 0)
+
             {
                 spawnEnermy();
                 Debug.Log(countPower);
