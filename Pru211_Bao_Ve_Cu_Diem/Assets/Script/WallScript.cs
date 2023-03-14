@@ -15,9 +15,9 @@ public class WallScript : MonoBehaviour
 
 	private void Start()
 	{
-		healthLeft = maxHealth;
-		Common.healthLeft = maxHealth;
-	}
+        healthLeft = maxHealth;
+        Common.healthLeft = maxHealth;
+    }
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
